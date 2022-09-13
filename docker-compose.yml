@@ -1,0 +1,18 @@
+version: '3'
+
+services: 
+  db:
+    image: postgres:13.8-alpine
+    environment:
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+  web:
+    build: .
+    command: pytho manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/chatbot
+    ports:
+      - '8000:8000'
+    depends_on:
+    - db
