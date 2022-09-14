@@ -10,19 +10,6 @@ from core.chat.serializers import GenericoSerializer, CaterogiaSerializer, Subca
 
 import re
 
-# class MessageViewSet(viewsets.GenericViewSet):
-#     model = Message
-#     serializer_class = MessageSerializer
-
-#     # def get_queryset(self):
-#     #     return self.get_serializer().Meta.model.objects.filter(state = True)
-    
-#     def list(self, request):
-#         data = self.get_queryset()
-#         data = self.get_serializer(data, many = True)
-#         return Response(data.data)
-
-
 class GenericoListAPIView(ListAPIView):
     queryset = Generico.objects.all()
     serializer_class = GenericoSerializer
