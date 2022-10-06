@@ -202,16 +202,52 @@ class SubcategoriaViewSet(viewsets.ModelViewSet):
     queryset = SubCategoria.objects.all()
     serializer_class = SubcaterogiaSerializer
 
+    def get_queryset(self,pk=None):
+        queryset = super().get_queryset()
+        query = self.kwargs
+        print(query)
+        if query == {}:
+            queryset = queryset.all()
+        else:
+            queryset = queryset.filter(subcategoria = int(query['subcategoria_pk']))
+        return queryset
+
+    # def get_queryset(self):
+    #     queryset = super().get_queryset()
+    #     query = self.kwargs
+    #     if query == {}:
+    #         queryset = queryset.all()
+
+    #     print(query)
+    #     # {'group_pk': '1'}
+    #     # {'pk': '1'}
+    #     if len(query) == 1:
+    #         try:
+    #             queryset = queryset.filter(group = self.kwargs['group_pk'])
+    #         except KeyError:
+    #             queryset = queryset.filter(id = self.kwargs['pk'])
+        
+    #     # {'group_pk': '1', 'pk': '3'}
+    #     if len(query) == 2:
+    #         queryset = queryset.filter(group = int(query['group_pk']))
+    #         queryset = queryset.filter(id = self.kwargs['pk'])
+
+    #     return queryset
+
 class PreguntaViewSet(viewsets.ModelViewSet):
     queryset = Pregunta.objects.all()
     serializer_class = PreguntaSerializer
 
+class PreguntaSimplifiedViewSet(viewsets.ModelViewSet):
+    queryset = Pregunta.objects.all()
+    serializer_class = PreguntaSimplifiedSerializer
+
     def get_queryset(self,pk=None):
         queryset = super().get_queryset()
         query = self.kwargs
-        # print(query)
+        print(query)
         if query == {}:
             queryset = queryset.all()
         else:
-            queryset = queryset.filter(id = int(query['pk']))
+            queryset = queryset.filter(subcategoria = int(query['subcategoria_pk']))
         return queryset

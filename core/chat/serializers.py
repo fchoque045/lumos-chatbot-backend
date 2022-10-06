@@ -1,6 +1,11 @@
 from rest_framework import serializers
 from core.chat.models import Generico, Categoria, SubCategoria, Pregunta, Saludo, Despedida, Horario
 
+class SaludoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Saludo
+        fields = '__all__'
 
 class GenericoSerializer(serializers.ModelSerializer):
 
@@ -34,8 +39,9 @@ class PreguntaSerializer(serializers.ModelSerializer):
         model = Pregunta
         fields = '__all__'
 
-class SaludoSerializer(serializers.ModelSerializer):
+class PreguntaSimplifiedSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Saludo
-        fields = '__all__'
+        model = Pregunta
+        fields = ('id', 'pregunta')
+

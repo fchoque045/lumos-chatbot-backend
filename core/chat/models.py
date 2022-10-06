@@ -140,4 +140,4 @@ class Pregunta(models.Model):
         return self.pregunta
 
     def get_keywords(self):
-        return "\n".join([k.pregunta + ',' for k in self.keyword.all()])
+        return "\n".join([k.text + ',' for k in self.keyword.all()])
