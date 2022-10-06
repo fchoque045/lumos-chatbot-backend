@@ -139,3 +139,5 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
     },
 }
+
+CORS_ORIGIN_ALLOW_ALL = True

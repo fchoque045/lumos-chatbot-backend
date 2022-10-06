@@ -10,18 +10,23 @@ from ckeditor.fields import RichTextField
 #     ('CD',	'Carga de datos'),
 # ]
 
-TYPE = [
-    ('MBie', 'Mensaje Bienvenida'),
-    ('MDesp', 'Mensaje Despedida'),
+TIPO_GENERICO = [
+    ('MPre', 'Mensaje Presentacion'),
     ('MErr', 'Mensaje Error'),
     ('MDef', 'Mensaje Default'),
     ('MDesc', 'Mensaje Descripcion'),
 ]
 
+TIPO_HORARIO = [
+    ('M', 'Mañana'),
+    ('T', 'Tarde'),
+    ('N', 'Noche'),
+]
+
 class Generico(models.Model):
     """Model definition for Generico."""
-    text = models.TextField(blank = False, null = True)
-    type = models.CharField(max_length = 25, choices = TYPE)
+    texto = models.TextField(blank = False, null = True)
+    tipo = models.CharField(max_length = 25, choices = TIPO_GENERICO)
 
     class Meta:
         """Meta definition for Generico."""
@@ -30,7 +35,49 @@ class Generico(models.Model):
 
     def __str__(self):
         """Unicode representation of Generico."""
-        return self.type
+        return self.tipo
+
+class Horario(models.Model):
+    """Model definition for Horario."""    
+    tipo = models.CharField(max_length = 25, choices = TIPO_HORARIO)
+    hora = models.TimeField(auto_now=False, auto_now_add=False)
+
+    class Meta:
+        """Meta definition for Horario."""
+        verbose_name = 'horario'
+        verbose_name_plural = 'horarios'
+
+    def __str__(self):
+        """Unicode representation of Horario."""
+        return self.tipo
+
+class Saludo(models.Model):
+    """Model definition for Saludo."""
+    mensaje = models.TextField(blank = False, null = True)
+    horario = models.ForeignKey(Horario, on_delete=models.CASCADE, blank=True, null = True)
+
+    class Meta:
+        """Meta definition for Saludo."""
+        verbose_name = 'saludo'
+        verbose_name_plural = 'saludos'
+
+    def __str__(self):
+        """Unicode representation of SaludoDespedida."""
+        return self.mensaje
+
+class Despedida(models.Model):
+    """Model definition for Despedida."""
+    mensaje = models.TextField(blank = False, null = True)    
+    horario = models.ForeignKey(Horario, on_delete=models.CASCADE, blank=True, null = True)
+
+    class Meta:
+        """Meta definition for Despedida."""
+        verbose_name = 'despedida'
+        verbose_name_plural = 'despedidas'
+
+    def __str__(self):
+        """Unicode representation of Despedida."""
+        return self.mensaje
 
 
 class Categoria(models.Model):
