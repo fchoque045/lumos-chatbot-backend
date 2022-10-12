@@ -1,10 +1,16 @@
 from rest_framework import serializers
-from core.chat.models import Generico, Categoria, SubCategoria, Pregunta, Saludo, Despedida, Horario
+from core.chat.models import Generico, Categoria, SubCategoria, Pregunta, Saludo, Despedida
 
 class SaludoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Saludo
+        fields = ('mensaje',)
+
+class DespedidaSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Despedida
         fields = ('mensaje',)
 
 class GenericoSerializer(serializers.ModelSerializer):
