@@ -5,7 +5,7 @@ class SaludoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Saludo
-        fields = '__all__'
+        fields = ('mensaje',)
 
 class GenericoSerializer(serializers.ModelSerializer):
 
@@ -37,7 +37,7 @@ class PreguntaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Pregunta
-        fields = '__all__'
+        fields = ('id', 'pregunta', 'respuesta')
 
 class PreguntaSimplifiedSerializer(serializers.ModelSerializer):
 
