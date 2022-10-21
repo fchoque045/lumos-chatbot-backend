@@ -90,7 +90,6 @@ class DespedidaViewSet(BaseSaludoViewset):
 
         Clean the text and Returns a boolean if text belongs to list of byes
         '''
-
         text = text.lower()  # lowercase, standardize
         list_text = text.split(' ')
         new_list = []
