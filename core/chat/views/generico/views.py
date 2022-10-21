@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import viewsets
 from core.chat.models import Generico, Saludo, Despedida, Horario
 from core.chat.serializers import *
-import datetime
+from datetime import datetime
 import re
 
 
@@ -63,7 +63,6 @@ class BaseSaludoViewset(viewsets.ModelViewSet):
         '''        
         Return the id of the Horario.tipo (M,T,N) according to the time
         '''
-        from datetime import datetime
         hora = datetime.now().time()
         horarios = Horario.objects.order_by('hora')
         if hora >= horarios[0].hora and hora <= horarios[1].hora:
@@ -113,7 +112,6 @@ class DespedidaViewSet(BaseSaludoViewset):
             if request.GET['text']:
                 text = request.GET.get('text')
                 if self.is_bye(text):
-                    print('es despedida')
                     serializer = self.get_serializer(
                         self.get_queryset(), many=True)
                     return Response(serializer.data)
