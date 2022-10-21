@@ -63,7 +63,6 @@ class BaseSaludoViewset(viewsets.ModelViewSet):
         '''        
         Return the id of the Horario.tipo (M,T,N) according to the time
         '''
-        from datetime import datetime
         hora = datetime.now().time()
         horarios = Horario.objects.order_by('hora')
         if hora >= horarios[0].hora and hora <= horarios[1].hora:
@@ -91,7 +90,6 @@ class DespedidaViewSet(BaseSaludoViewset):
 
         Clean the text and Returns a boolean if text belongs to list of byes
         '''
-
         text = text.lower()  # lowercase, standardize
         list_text = text.split(' ')
         new_list = []
@@ -113,7 +111,6 @@ class DespedidaViewSet(BaseSaludoViewset):
             if request.GET['text']:
                 text = request.GET.get('text')
                 if self.is_bye(text):
-                    print('es despedida')
                     serializer = self.get_serializer(
                         self.get_queryset(), many=True)
                     return Response(serializer.data)

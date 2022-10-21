@@ -9,6 +9,9 @@
 **/migrations/*
 !**/migrations/__init__.py
 
+#database
+/data
+
 # Backup files # 
 *.bak 
 ./vscode
