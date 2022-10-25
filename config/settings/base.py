@@ -128,14 +128,15 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#setting ckeditor
+# setting ckeditor
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "/media/"
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'full',
         'height': 400,
         'width': '100%',
     },
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
