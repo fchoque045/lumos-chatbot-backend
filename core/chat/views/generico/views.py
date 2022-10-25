@@ -53,6 +53,7 @@ class BaseSaludoViewset(viewsets.ModelViewSet):
         try:
             queryset = queryset.filter(horario=self.get_horario())
         except KeyError as e:
+            print('asdsad')
             if query == {}:
                 queryset = queryset.all()
             else:
@@ -65,6 +66,8 @@ class BaseSaludoViewset(viewsets.ModelViewSet):
         '''
         hora = datetime.now().time()
         horarios = Horario.objects.order_by('hora')
+        if (len(horarios) == 0):
+            return None
         if hora >= horarios[0].hora and hora <= horarios[1].hora:
             tipo = horarios[0]
         elif hora >= horarios[1].hora and hora <= horarios[2].hora:
