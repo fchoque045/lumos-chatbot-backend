@@ -3,8 +3,7 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://chatbot.promace.jujuy.edu.ar', 'https://promace.jujuy.edu.ar',
-                 'https://promace2.jujuy.edu.ar', 'https://promace3.jujuy.edu.ar']
+ALLOWED_HOSTS = ['*']
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -36,7 +35,5 @@ CORS_ALLOW_HEADERS = [
 ]
 
 CSRF_COOKIE_SECURE = False
-ALLOWED_HOST = ['https://chatbot.promace.jujuy.edu.ar', 'https://promace.jujuy.edu.ar',
-                'https://promace2.jujuy.edu.ar', 'https://promace3.jujuy.edu.ar']
-CSRF_TRUSTED_ORIGINS = ['https://chatbot.promace.jujuy.edu.ar', 'https://promace.jujuy.edu.ar',
-                        'https://promace2.jujuy.edu.ar', 'https://promace3.jujuy.edu.ar']
+ALLOWED_HOST = ['*']
+CSRF_TRUSTED_ORIGINS = ['*']
