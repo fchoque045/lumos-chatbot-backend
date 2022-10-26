@@ -1,6 +1,8 @@
 # Django #
 /media
 /static/ckeditor
+/static/admin
+/static/rest_framework
 **/db.sqlite3
 **/*.log
 **/*.pot
