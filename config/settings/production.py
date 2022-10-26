@@ -20,20 +20,3 @@ DATABASES = {
 }
 
 CORS_ALLOW_ALL_ORIGINS = True
-
-CORS_ALLOW_HEADERS = [
-    "Access-Control-Allow-Origin",
-    "accept",
-    "accept-encoding",
-    "authorization",
-    "content-type",
-    "dnt",
-    "origin",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-]
-
-CSRF_COOKIE_SECURE = False
-ALLOWED_HOST = ['*']
-CSRF_TRUSTED_ORIGINS = ['*']
