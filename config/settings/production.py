@@ -21,5 +21,5 @@ DATABASES = {
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://chatbot.promace.jujuy.edu.ar/']
 CSRF_COOKIE_SECURE = False
