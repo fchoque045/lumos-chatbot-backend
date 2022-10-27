@@ -5,9 +5,9 @@ services:
     image: postgres:13.8-alpine
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
-      - POSTGRES_DB=chatbot
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB="${DB_DATABASE}"
+      - POSTGRES_USER="${DB_USER}"
+      - POSTGRES_PASSWORD="${DB_PASSWORD}"
     volumes:
       - ./data/db:/var/lib/postgresql/data
   web:
@@ -19,3 +19,4 @@ services:
       - "8010:8000"
     depends_on:
       - db
+    restart: always
