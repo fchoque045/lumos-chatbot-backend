@@ -153,6 +153,7 @@ html {
   padding: 8px 12px;
   max-width: 83%;
   word-wrap: break-word;
+  width: fit-content;
 }
 
 .messages__item--visitor,
