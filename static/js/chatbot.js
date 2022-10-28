@@ -179,22 +179,19 @@ class Chatbox {
     } else {
       chatbox.classList.remove("chatbox--active");
       chatbox.classList.add("oculto");
+      setTimeout(() => {
+        const chatmessage =
+          this.args.chatBox.querySelector(".chatbox__messages");
+        chatmessage.innerHTML = "";
+        this.setSaludoBienvenida();
+        this.hello = true;
+      }, 480000);
     }
   }
 
   displayCategory(data, message) {
     data.forEach((c) => (c.type = "category"));
     const message_bot = { name: "bot", choices: data, message };
-    this.updateChatText(this.args.chatBox, message_bot);
-  }
-
-  displaySubcategory(data, message) {
-    data.forEach((s) => (s.type = "subcategory"));
-    const message_bot = {
-      name: "bot",
-      choices: data,
-      message: `Dudas respecto a ${message}`,
-    };
     this.updateChatText(this.args.chatBox, message_bot);
   }
 
