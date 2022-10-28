@@ -85,12 +85,6 @@ html {
   justify-content: end;
 }
 
-.messages__item {
-  background: orange;
-  max-width: 60.6%;
-  width: fit-content;
-}
-
 .messages__item--operator {
   /* margin-left: auto; */
 }
@@ -157,7 +151,8 @@ html {
   margin-top: 0px;
   background: #e0e0e0;
   padding: 8px 12px;
-  max-width: 80%;
+  max-width: 83%;
+  word-wrap: break-word;
 }
 
 .messages__item--visitor,
