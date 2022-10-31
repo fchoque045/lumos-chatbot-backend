@@ -85,6 +85,26 @@ class PreguntaSubcategoriaViewSet(viewsets.ModelViewSet):
         return queryset
 
 
+class PreguntaCategoriaViewSet(viewsets.ModelViewSet):
+    queryset = Pregunta.objects.all()
+    serializer_class = PreguntaSimplifiedSerializer
+
+    def get_queryset(self, pk=None):
+        '''
+        Get questions by a given Subcategory or get all if it isn't specified.
+
+        Returns a queryset
+        '''
+        queryset = super().get_queryset()
+        query = self.kwargs
+        if query == {}:
+            queryset = queryset.all()
+        else:
+            queryset = queryset.filter(
+                categoria=int(query['categoria_pk']))
+        return queryset
+
+
 class PreguntaKeywordViewSet(viewsets.ModelViewSet):
     queryset = Pregunta.objects.all()
     serializer_class = PreguntaSimplifiedSerializer
