@@ -1,14 +1,15 @@
 *,
 html {
-  --primaryGradient: linear-gradient(93.12deg, #133c63 0.52%, #31679b 100%);
+  --primaryGradient: linear-gradient(93.12deg, #231942 0.52%, #66267b 100%);
   --secondaryGradient: linear-gradient(
     268.91deg,
-    #133c63 -2.14%,
-    #31679b 99.69%
+    #231942 -2.14%,
+    #66267b 99.69%
   );
   --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
   --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
-  --primary: #14a5a1;
+  --primaryMessage: #66267b;
+  --chatboxSupport: #be95c4;
 }
 
 /* CHATBOX
@@ -85,14 +86,6 @@ html {
   justify-content: end;
 }
 
-.messages__item--operator {
-  /* margin-left: auto; */
-}
-
-.messages__item--visitor {
-  /* margin-right: auto; */
-}
-
 /* FOOTER */
 .chatbox__footer {
   position: sticky;
@@ -101,7 +94,7 @@ html {
 
 .chatbox__support {
   /*background: #f9f9f9; */
-  background: steelblue;
+  background: var(--chatboxSupport);
   height: 450px;
   width: 320px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
@@ -127,8 +120,8 @@ html {
 .chatbox__image--header {
   height: 80%;
   margin-right: 10px;
-  /* background-color: white;
-    border-radius: 50%; */
+  background-color: white;
+  border-radius: 50%;
 }
 
 .chatbox__heading--header {
@@ -167,7 +160,7 @@ html {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  background: #1f9fa2;
+  background: var(--primaryMessage);
   color: white;
 }
 
@@ -195,6 +188,10 @@ html {
   max-height: 35px;
 }
 
+.chatbox__footer input:focus {
+  outline: none;
+}
+
 .chatbox__send--footer {
   color: white;
 }
@@ -219,22 +216,14 @@ html {
   margin: 2px;
   padding: 3px;
   cursor: pointer;
-  border: 1px solid #1f9fa2;
-  color: #1f9fa2;
+  border: 1px solid var(--primaryMessage);
+  color: var(--primaryMessage);
   font-weight: bold;
 }
 
 .message__item--choice:hover {
-  background-color: #1f9fa2;
+  background-color: var(--primaryMessage);
   color: white;
-}
-
-a.linchat {
-  color: blue;
-}
-
-a:hover.linchat {
-  color: cadetblue;
 }
 
 /* WAIT ELEMENT */
