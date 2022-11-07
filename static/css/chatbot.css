@@ -46,6 +46,7 @@ html {
 /* BUTTON */
 .chatbox__button {
   text-align: right;
+  margin-top: -35px;
 }
 
 .send__button {
