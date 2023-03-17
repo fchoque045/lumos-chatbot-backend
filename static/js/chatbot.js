@@ -1,4 +1,4 @@
-const baseUrl = "https://chatbot.promace.jujuy.edu.ar/api";
+const baseUrl = "https://chatbot.api.jujuy.edu.ar/api";
 
 const fetchSaludoBienvenida = async () => {
   const url = `${baseUrl}/saludo/`;
